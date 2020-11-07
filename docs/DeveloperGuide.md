@@ -561,6 +561,21 @@ Extensions
         Use case ends.
 
 
+**Use Case: Get a random student in a session**
+
+**MSS**
+1. User requests for the details of a random student within a session.
+2. System displays the details of that student.
+
+Extensions
+* 1a. System is not within the context of a session.
+    * 1a1. System shows an error message.
+        Use case ends.
+        
+* 1b. Session has zero students.
+    * 1b1. System shows an error message.
+        Use case ends.
+
 
 ### Non-Functional Requirements
 
