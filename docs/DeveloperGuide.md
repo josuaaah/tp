@@ -545,7 +545,20 @@ Extensions
         Use case resumes at step 1.
 
 
-*{More to be added}*
+**Use Case: Get student with the lowest class participation score**
+
+**MSS**
+1. User requests for the details of the student with the lowest score within a session.
+2. System displays the details of that student.
+
+Extensions
+* 1a. System is not within the context of a session.
+    * 1a1. System shows an error message.
+        Use case ends.
+        
+* 1b. Session has zero students.
+    * 1b1. System shows an empty student list.
+        Use case ends.
 
 
 
