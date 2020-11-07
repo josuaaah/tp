@@ -133,10 +133,10 @@ Classes used by multiple components are in the `seedu.taskmaster.commons` packag
 
 ## **Additional Features Implemented**
 
-### SessionList
+### Session and SessionList
 
 Author: **Joshua Chew**
-* Implementing the classes that encapsulate a list of tutorial sessions.
+* Implemented the classes that encapsulate a list of tutorial sessions.
 
 ![Structure of the SessionList Component](images/SessionListClassDiagram.png)
 
@@ -165,7 +165,7 @@ Given below is the planned Sequence Diagram for interactions within the `Session
 
 Author: **Goh Siau Chiak**
 
-* Implementing the classes that encapsulate a list of student records.
+* Implemented the classes that encapsulate a list of student records.
 
 ![Structure of StudentRecordList Component](images/StudentRecordDiagram.png)
 
@@ -241,7 +241,7 @@ Design alternatives:
 ### Storage
 
 Author: **Jaya Rengam**
-* Change/Add classes in the Storage package to store data related to Sessions.
+* Changed/Added classes in the Storage package to store data related to Sessions.
 
 ![Structure of the Storage Component](images/NewStorageClassDiagram.png)
 
@@ -266,9 +266,9 @@ Alternative implementations:
 ### ClassParticipation
 
 Author: **Theodore Leebrant**
-* Implementing the class in charge of representing the class participation of each student in a session.
+* Implemented the class in charge of representing the class participation of each student in a session.
 
-![Class Participation](images/ClassParticipation.png)
+![ScoreActivityDiagram](images/ScoreActivityDiagram.png)
 
 The `ClassParticipation` is planned to
 * store a `score` and the maximum score (`maxScore`) attainable
@@ -288,7 +288,7 @@ Given below is the planned Sequence Diagram for interaction to set the class par
 ### UI
 
 Author: **Lim Jin Feng**
-* Change/Add classes in the UI package to display newly implemented functionality such as ClassRecords.
+* Changed/Added classes in the UI package to display newly implemented functionality such as ClassRecords.
 
 ![Structure of the UI Component](images/UpdatedUiClassDiagram.png)
 
@@ -304,7 +304,7 @@ A new method `MainWindow#fillInnerParts2` will change the contents of the Ui to 
 
 Alternative implementations considered:
 * Use FXML's tab feature to display class records
-    * Does not support future expansion when sessions is implemented - there may be an indefinite amount of sessions created.
+    - Does not support future expansion when sessions is implemented - there may be an indefinite amount of sessions created.
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Documentation, logging, testing, configuration, dev-ops**
@@ -348,9 +348,9 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* * *`  | user                                       | view details of a student         | have quick access to them                                      |
 | `* * *`  | user                                       | view details of all my students   | have quick access to them                                      |
 | `* * *`  | user                                       | mark a student's attendance       |                                                                |
-| `* * *`  | user                                       | mark all students' attendance     | update all attendance records quickly and focus on teaching    |
+| `* *`    | user                                       | mark all students' attendance     | update all attendance records quickly and focus on teaching    |
 | `* * *`  | user                                       | score a student's participation   |                                                                |
-| `* * *`  | user                                       | score all students; participation | update all participation records quickly and focus on teaching |
+| `* *`    | user                                       | score all students' participation | update all participation records quickly and focus on teaching |
 | `* * *`  | user                                       | delete a student                  |                                                                |
 | `* * *`  | user                                       | add a new session                 |                                                                |
 | `* * *`  | user                                       | view details of a session         | have quick access to it                                        |
@@ -689,7 +689,7 @@ testers are expected to do more *exploratory* testing.
 
    1. Other incorrect add commands to try: `goto First Session`, `...`<br>
       Expected: Similar to previous.
-
+      
 
 ### Clearing contents of student and session list
 
