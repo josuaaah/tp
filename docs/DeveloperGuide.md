@@ -742,7 +742,58 @@ testers are expected to do more *exploratory* testing.
     
     1. Test case: `mark all a/present`<br>
        Expected: Current view does not change. Status message informs user to select a session first.
-      
+
+
+### Awarding a student class participation points
+
+1. Awarding points to a student within a session
+
+    1. Prerequisites: 
+        - Add a session to the session list by running the command `add-session s/First Session dt/23-10-2020 0900`.
+        - Select that session by running the command `goto s/First Session`.
+    
+    1. Test case: `score 1 cp/5`<br>
+       Expected: First student in the student record list of First Session is given a class participation score of 5.0.
+       
+    1. Test case: `score 1 cp/100`<br>
+       Expected: Current view does not change. Status message informs user that the input score should be between 0 and 10 inclusive.
+       
+    1. Test case: `score cp/100`<br>
+       Expected: Current view does not change. Error details shown in the status message.
+    
+    1. Other incorrect add commands to try: `score`<br>
+       Expected: Similar to previous.
+    
+2. Awarding points to a student when no session is selected
+    
+    1. Prerequisites: List all students using the `list-students` command. Multiple students in the list.
+    
+    1. Test case: `score 1 cp/5`<br>
+       Expected: Current view does not change. Status message informs user to select a session first.
+
+
+### Awarding all students class participation points
+
+1. Awarding points to all students within a session
+
+    1. Prerequisites: 
+        - Add a session to the session list by running the command `add-session s/First Session dt/23-10-2020 0900`.
+        - Select that session by running the command `goto s/First Session`.
+        - Mark all students in the session as present by running the command `mark all a/present`.
+    
+    1. Test case: `score all cp/5`<br>
+       Expected: All students in the student record list whose attendance is Present in the session `First Session` is given a class participation score of 5.0.
+       
+    1. Test case: `score all cp/100`<br>
+       Expected: Current view does not change. Status message informs user that the input score should be between 0 and 10 inclusive.
+    
+2. Awarding points to all students when no session is selected
+    
+    1. Prerequisites: List all students using the `list-students` command. Multiple students in the list.
+    
+    1. Test case: `score all cp/5`<br>
+       Expected: Current view does not change. Status message informs user to select a session first.
+
 
 ### Clearing contents of student and session list
 
