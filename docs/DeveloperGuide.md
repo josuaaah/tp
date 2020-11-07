@@ -577,6 +577,7 @@ testers are expected to do more *exploratory* testing.
 
 </div>
 
+
 ### Launch and shutdown
 
 1. Initial launch
@@ -592,7 +593,6 @@ testers are expected to do more *exploratory* testing.
    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
 
 ### Adding a student
 
@@ -611,7 +611,8 @@ testers are expected to do more *exploratory* testing.
 
    1. Other incorrect add commands to try: `add-student`, `add-student Gandalf`, `...`<br>
       Expected: Similar to previous.
-      
+
+
 ### Finding a student
 
 1. Finding a student whose name exists in the student list
@@ -623,7 +624,8 @@ testers are expected to do more *exploratory* testing.
 
    1. Test case: `find-students`<br>
       Expected: No change to the student list view. Error details shown in the status message.
-      
+
+
 ### Editing a student
 
 1. Editing a student while all students are being shown
@@ -638,6 +640,7 @@ testers are expected to do more *exploratory* testing.
    
    1. Other incorrect delete commands to try: `edit-student`, `edit-student x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
+
 
 ### Deleting a student
 
@@ -670,7 +673,7 @@ testers are expected to do more *exploratory* testing.
 
    1. Other incorrect add commands to try: `add-session First Session`, `...`<br>
       Expected: Similar to previous.
-   
+
 
 ### Changing the current session view
 
@@ -689,6 +692,56 @@ testers are expected to do more *exploratory* testing.
 
    1. Other incorrect add commands to try: `goto First Session`, `...`<br>
       Expected: Similar to previous.
+
+
+### Marking a student's attendance
+
+1. Marking a student's attendance within a session
+
+    1. Prerequisites: 
+        - Add a session to the session list by running the command `add-session s/First Session dt/23-10-2020 0900`.
+        - Select that session by running the command `goto s/First Session`.
+    
+    1. Test case: `mark 1 a/present`<br>
+       Expected: First student in the student record list of First Session is marked as present.
+       
+    1. Test case: `mark a/present`<br>
+       Expected: Current view does not change. Error details shown in the status message.
+    
+    1. Other incorrect add commands to try: `mark`, `mark 1`, `mark x`, `...` (where x is larger than the list size)<br>
+       Expected: Similar to previous.
+    
+2. Marking a student's attendance when no session is selected
+    
+    1. Prerequisites: List all students using the `list-students` command. Multiple students in the list.
+    
+    1. Test case: `mark 1 a/present`<br>
+       Expected: Current view does not change. Status message informs user to select a session first.
+    
+
+### Marking all students attendances
+
+1. Marking all students attendances within a session
+
+    1. Prerequisites: 
+        - Add a session to the session list by running the command `add-session s/First Session dt/23-10-2020 0900`.
+        - Select that session by running the command `goto s/First Session`.
+    
+    1. Test case: `mark all a/present`<br>
+       Expected: All students in the student record list of First Session are marked as present.
+       
+    1. Test case: `mark all`<br>
+       Expected: Current view does not change. Error details shown in the status message.
+    
+    1. Other incorrect add commands to try: `mark all a/xxxx`<br>
+       Expected: Similar to previous.
+    
+2. Marking a student's attendance when no session is selected
+    
+    1. Prerequisites: List all students using the `list-students` command. Multiple students in the list.
+    
+    1. Test case: `mark all a/present`<br>
+       Expected: Current view does not change. Status message informs user to select a session first.
       
 
 ### Clearing contents of student and session list
